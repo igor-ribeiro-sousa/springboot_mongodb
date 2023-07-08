@@ -1,31 +1,37 @@
 package com.springbootmongodb.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.springbootmongodb.dto.AuthorDTO;
+import com.springbootmongodb.dto.CommentDTO;
 
 @Document(collection = "post")
 public class Post implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String Id;
+	private String id;
 	private Date date;
 	private String title;
 	private String body;
 	private AuthorDTO author;
 
-	public Post() {
+	private List<CommentDTO> comments = new ArrayList<>();
+
+	public Post()
+	{
 
 	}
 
 	public Post(String id, Date date, String title, String body, AuthorDTO author) {
-		Id = id;
+		this.id = id;
 		this.date = date;
 		this.title = title;
 		this.body = body;
@@ -33,11 +39,11 @@ public class Post implements Serializable {
 	}
 
 	public String getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public Date getDate() {
@@ -72,9 +78,17 @@ public class Post implements Serializable {
 		this.author = author;
 	}
 
+	public List<CommentDTO> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<CommentDTO> comments) {
+		this.comments = comments;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(Id);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -86,7 +100,7 @@ public class Post implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Post other = (Post) obj;
-		return Objects.equals(Id, other.Id);
+		return Objects.equals(id, other.id);
 	}
 
 }
