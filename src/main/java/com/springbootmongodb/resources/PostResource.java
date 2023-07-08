@@ -1,6 +1,9 @@
 package com.springbootmongodb.resources;
 
+<<<<<<< HEAD
 import java.util.Date;
+=======
+>>>>>>> 269d0757ec584c1b9672a2038d05f816ee926369
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +38,7 @@ public class PostResource {
 		return ResponseEntity.ok().body(list);
 	}
 	
+<<<<<<< HEAD
 	@GetMapping(value="/fullsearch")
  	public ResponseEntity<List<Post>> fullSearch(
  			@RequestParam(value="text", defaultValue = "") String text,
@@ -47,4 +51,6 @@ public class PostResource {
 		return ResponseEntity.ok().body(list);
 	}
 	
+=======
+>>>>>>> 269d0757ec584c1b9672a2038d05f816ee926369
 }

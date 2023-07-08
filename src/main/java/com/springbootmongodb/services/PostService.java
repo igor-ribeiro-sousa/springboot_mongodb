@@ -22,6 +22,7 @@ public class PostService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 
+<<<<<<< HEAD
 	//QUERY METHOD
 	/*
 	  public List<Post> findByTitle(String text) { return
@@ -36,6 +37,10 @@ public class PostService {
 	public List<Post> fullSearch(String text, Date minDate, Date maxDate){
 		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
 		return repository.fullSearch(text, minDate, maxDate);
+=======
+	public List<Post> findByTitle(String text) {
+		return repository.findByTitleContainingIgnoreCase(text);
+>>>>>>> 269d0757ec584c1b9672a2038d05f816ee926369
 	}
 
 //	public List<Post> fullSearch(String text, Date minDate, Date maxDate) {
